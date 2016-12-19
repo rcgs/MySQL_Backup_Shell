@@ -4,19 +4,19 @@
 #保存先のパス
 dirpath=#フルパスで指定
 
-#バックアップファイルの名前
+#バックアップファイルの名前（現在は「backup年月日時分.sql」）
 filename=backup`date "+%Y%m%d_%H%M"`
 
-#ユーザー名
-user=#MySQLのユーザー名
+#MySQLのユーザー名
+usname=#ユーザー名
 
-#パスワード
+#パスワード、opensslを用いて暗号化された「PASS.rsa」ファイルを参照する
 password=$(openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in PASS.rsa)
 
-#データベース名
+#バックアップをとるデータベースの名前
 dbname=#データベース名
 
-#ダンプの実行
-mysqldump --opt -u $user --password=$password $dbname > $dirpath/$filename.sql
+#ダンピングの実行
+mysqldump --opt -u $usname --password=$password $dbname > $dirpath/$filename.sql
 
 
