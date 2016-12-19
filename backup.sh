@@ -11,7 +11,7 @@ filename=backup`date "+%Y%m%d_%H%M"`
 user=#MySQLのユーザー名
 
 #パスワード
-password=#パスワード
+password=$(openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in PASS.rsa)
 
 #データベース名
 dbname=#データベース名
