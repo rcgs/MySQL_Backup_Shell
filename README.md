@@ -1,6 +1,9 @@
 # MySQL_Backup_Shell
-MySQLのバックアップを.sqlの形式で作成するShell
+MySQLのバックアップを.sqlの形式で作成するShell。
+cronを使って定期実行するように設定してください。
 `openssl`を用いてパスワードを暗号化しています。
+変数の中身を環境に応じて書き換えてから使ってください。
+
 
 ##使い方
 `PASS.txt`を作成する。内容はMySQLのパスワード。
